@@ -1,0 +1,51 @@
+class Имя
+{
+private:
+	поля и методы	
+	
+protected:
+	поля и методы
+
+public:
+	поля и методы	
+};
+
+class Point
+{
+public:
+
+	int x; //поле класса
+	int y;
+
+	void Print(); //объявление метода класса
+};
+
+//определение метода вне класса
+void Point::Print() //обязательно указать имя класса
+{
+	cout << "x: " << x << ", y: " << y << endl;
+}
+
+Point p1; //
+
+p1.x = 0;
+p1.y = 0;
+
+p1.Print();
+
+Print(); //error
+
+
+m_x, m_y, m_name
+
+x_, y_, name_
+
+
+
+public
+private
+protected
+
+
+
+
