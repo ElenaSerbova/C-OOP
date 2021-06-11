@@ -17,8 +17,10 @@ public:
 	void RemoveElement(size_t index);
 	void Clear();
 
-	int GetElement(size_t index);
-	int GetSize();
+	void SetElement(size_t index, int value);
+
+	int GetElement(size_t index) const;
+	int GetSize() const;
 
 private:
 

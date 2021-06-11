@@ -17,6 +17,7 @@ DynamicArray::DynamicArray(size_t size)
 	}
 }
 
+//DynamicArray array2 = array1; => DynamicArray array2(array1)
 DynamicArray::DynamicArray(const DynamicArray& array)
 {
 	size_ = array.size_;
@@ -88,16 +89,27 @@ void DynamicArray::Clear()
 	}
 }
 
-int DynamicArray::GetElement(size_t index)
+void DynamicArray::SetElement(size_t index, int value)
 {
-	if (index >= size_)
+	if (index >= this->size_)
+	{
+		cout << "Index out of randge" << endl;
+		return;
+	}
+
+	pArr_[index] = value;
+}
+
+int DynamicArray::GetElement(size_t index) const
+{	
+	if (index >= this->size_)
 	{
 		cout << "Index out of randge" << endl;
 	}
 	return pArr_[index];
 }
 
-int DynamicArray::GetSize()
+int DynamicArray::GetSize() const
 {
 	return size_;
 }
