@@ -7,7 +7,8 @@ using namespace std;
 class SuperHero
 {
 public:
-
+	
+	SuperHero() = default;
 	SuperHero(const char* heroName, const char* alterEgo)
 	{
 		int length = strlen(heroName);
@@ -24,19 +25,20 @@ public:
 		Copy(hero);
 	}
 
-	~SuperHero()
+	SuperHero& operator=(const SuperHero& hero) 
 	{
-		if (heroName_ != nullptr)
+		if (this != &hero) 
 		{
-			delete[] heroName_;
-			heroName_ = nullptr;
+			Clear();
+			Copy(hero);
 		}
 
-		if (alterEgo_ != nullptr)
-		{
-			delete[] alterEgo_;
-			alterEgo_ = nullptr;
-		}
+		return *this;
+	}
+
+	~SuperHero()
+	{
+		Clear();
 	}
 
 	void Print() 
@@ -54,6 +56,29 @@ public:
 		length = strlen(hero.alterEgo_);
 		alterEgo_ = new char[length + 1];
 		strcpy_s(alterEgo_, length + 1, hero.alterEgo_);
+	}
+
+	void Clear()
+	{
+		if (heroName_ != nullptr)
+		{
+			delete[] heroName_;
+			heroName_ = nullptr;
+		}
+
+		if (alterEgo_ != nullptr)
+		{
+			delete[] alterEgo_;
+			alterEgo_ = nullptr;
+		}
+	}
+
+	char* GetHeroName() {
+		return heroName_;
+	}
+
+	char* GetAlterEgo() {
+		return alterEgo_;
 	}
 
 private:

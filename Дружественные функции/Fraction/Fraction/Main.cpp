@@ -26,7 +26,6 @@ void ConstMethodTest();
 void ExplicitCtorTest();
 void OperatorMultipleTest(); //operator*
 void OperatorDivideTest(); //operator/
-void MultiplicationAssignmentTest();
 void UnaryOperatorTest(); //operator-
 void IncrementTest(); //operator++
 void DecrementTest(); //operator--
@@ -42,7 +41,6 @@ int main()
    // ExplicitCtorTest();
    // OperatorMultipleTest();
    // OperatorDivideTest();
-   // MultiplicationAssignmentTest();
    // UnaryOperatorTest();
    // IncrementTest();
    // DecrementTest();
@@ -63,12 +61,8 @@ void ConstMethodTest()
 
 void ExplicitCtorTest()
 {
-    Fraction fr3(1, 2);
-    Print(fr3);  
-
-    int a = 4;
-    Fraction fr4 = (Fraction)a; //Fraction(a)   
-    Print(fr4);
+    Fraction fr3(1);
+    Print(fr3);
 
     foo((Fraction)10); //foo( Fraction(10) )
 }
@@ -114,21 +108,6 @@ void OperatorDivideTest()
     result = 3 / fr2; //result = operator/ (3, fr2 );
     Print(result);
 
-}
-
-void MultiplicationAssignmentTest()
-{
-    Fraction fr1(1, 2);
-    Fraction fr2(2, 3);
-    Fraction fr3(3, 4);
-    
-    fr1 *= fr2 *= fr3;
-
-    Print(fr1);
-    Print(fr2);
-
-    fr3 *= 2;
-    Print(fr3);
 }
 
 void UnaryOperatorTest()
@@ -197,12 +176,18 @@ void EqualsTest()
 
 void ConversionTest()
 {
-    Fraction fr(3, 4);
+     //1. из другого типа в ваш тип
+    Fraction fr1 = (Fraction)1;
 
-    double d = (double)fr;
-    int i = fr;
+    //2. из вашего типа в другой
+    Fraction fr2(1, 2);
+    
+    double d = (double)fr2;
 
-    Print(fr);
     cout << "d: " << d << endl;
+
+    int i = (int)fr2; //fraction -> int
+
     cout << "i: " << i << endl;
+
 }

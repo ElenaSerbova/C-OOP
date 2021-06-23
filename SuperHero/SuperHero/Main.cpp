@@ -1,16 +1,27 @@
 #include <iostream>
 #include "SuperHero.h"
+#include "League.h"
 using namespace std;
 
 int main()
 {
-    SuperHero hero1("IronMan", "Tony Stark");
-    hero1.Print();
+    League league;
 
-    SuperHero hero2("", "");
+    char hero_name[50];
+    cout << "Enter hero name: ";
+    cin.getline(hero_name, 50);
 
-    hero2.Copy(hero1);
-    hero2.Print();
+    char* alter_ego = league[hero_name];
+    if (alter_ego == nullptr)
+    {
+        cout << "Hero not found" << endl;
+    }
+    else 
+    {
+        cout << "Alter ego: " << alter_ego << endl;
+    }
 
-    hero2.~SuperHero();
+    SuperHero hero = league[0];
+    hero.Print();
+
 }

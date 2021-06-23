@@ -7,9 +7,14 @@ void ConstructorsTest();
 void AccessorsTest();
 void AddElementTest();
 void CopyCostructorTest();
+void ReturnObjectTest();
+void IndexatorTest();
+
 
 void PrintArray(DynamicArray arr);
 DynamicArray GenerateRandomArray(size_t size);
+
+
 
 int main()
 {
@@ -18,24 +23,9 @@ int main()
     //ConstructorsTest();
     //AccessorsTest();
     //AddElementTest();
-    CopyCostructorTest();
-
-    //DynamicArray array = GenerateRandomArray(10);
-    //array.Sort();
-    //PrintArray(array);
-
-    //DynamicArray::Sort(array);
-
-    DynamicArray array = GenerateRandomArray(10);
-
-    array[0] = 100;
-
-    size_t size = array.GetSize();
-    for (size_t i = 0; i < size; i++)
-    {
-        cout << array[i] << "\t";
-    }
-    cout << endl;
+    //CopyCostructorTest();
+    ReturnObjectTest();
+    //IndexatorTest();
 }
 
 void ConstructorsTest()
@@ -106,6 +96,40 @@ void CopyCostructorTest()
     PrintArray(arr4);
 }
 
+void ReturnObjectTest()
+{
+    DynamicArray arr1 = GenerateRandomArray(100);
+    PrintArray(arr1);
+
+    DynamicArray arr2(4, 1);
+    arr2 = GenerateRandomArray(10);
+
+    DynamicArray arr3 = move(arr2);
+
+    PrintArray( GenerateRandomArray(10) );
+}
+
+void IndexatorTest()
+{
+    DynamicArray arr = GenerateRandomArray(10);
+
+    arr[0] = 100;    
+
+    for (size_t i = 0; i < arr.GetSize(); i++)
+    {
+        cout << arr[i] << "\t"; //arr.operator[](i)
+    }
+    cout << endl;
+
+    const DynamicArray& arrRef = arr;
+
+    for (size_t i = 0; i < arrRef.GetSize(); i++)
+    {
+        cout << arrRef[i] << "\t"; //arr.operator[](i) const
+    }
+    cout << endl;
+}
+
 void PrintArray(DynamicArray arr)
 {
     for (size_t i = 0; i < arr.GetSize(); i++)
@@ -124,5 +148,5 @@ DynamicArray GenerateRandomArray(size_t size)
         arr.SetElement(i, rand() % 100);
     }
 
-    return arr;
+    return arr; //1. move, 2. delete
 }

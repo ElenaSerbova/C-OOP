@@ -4,13 +4,6 @@
 using namespace std;
 
 
-
-DynamicArray::DynamicArray()
-{
-	_arr = nullptr;
-	_size = 0;
-}
-
 DynamicArray::DynamicArray(size_t size, int value)
 {
 	_size = size;
@@ -24,6 +17,8 @@ DynamicArray::DynamicArray(size_t size, int value)
 
 DynamicArray::~DynamicArray()
 {
+	/*cout << "Destructor" << endl;
+	cout << "_arr: " << _arr << endl;*/
 	Clear();
 }
 
@@ -37,10 +32,16 @@ void DynamicArray::Copy(const DynamicArray& sourceObj)
 	}
 
 	_size = sourceObj._size;
-}
+
+	//cout << "Copy" << endl;
+	//cout << "_arr: " << _arr << endl;
+ }
 
 DynamicArray::DynamicArray(const DynamicArray& sourceObj)
 {
+	//cout << "Constructor copy" << endl;
+	//cout << "Source _arr: " << sourceObj._arr << endl;
+
 	Copy(sourceObj);
 }
 
@@ -53,6 +54,32 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& sourceObj)
 	}
 
 	return *this;
+}
+
+DynamicArray::DynamicArray(DynamicArray&& sourceObj)
+{
+	this->_arr = sourceObj._arr;
+	sourceObj._arr = nullptr;
+
+	this->_size = sourceObj._size;
+	sourceObj._size = 0;
+}
+
+DynamicArray& DynamicArray::operator=(DynamicArray&& sourceObj)
+{
+	if (this != &sourceObj) //проверка на самоприсваивание
+	{
+		Clear();
+		
+		this->_arr = sourceObj._arr;
+		sourceObj._arr = nullptr;
+
+		this->_size = sourceObj._size;
+		sourceObj._size = 0;
+	}
+
+	return *this;
+	
 }
 
 size_t DynamicArray::GetSize() const
@@ -84,21 +111,24 @@ void DynamicArray::SetElement(size_t index, int value)
 	_arr[index] = value;
 }
 
-int DynamicArray::operator[](size_t index) const
+int& DynamicArray::operator[](size_t index)
 {
 	if (index >= _size)
 	{
-		cout << "index out of range";
+		cout << "Error: index out of range" << endl;
+		static int res = 0;
+		return res;
 	}
 
 	return _arr[index];
 }
 
-int& DynamicArray::operator[](size_t index)
+int DynamicArray::operator[](size_t index) const
 {
 	if (index >= _size)
 	{
-		cout << "index out of range";
+		cout << "Error: index out of range" << endl;		
+		return 0;
 	}
 
 	return _arr[index];

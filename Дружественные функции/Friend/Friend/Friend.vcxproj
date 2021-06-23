@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b3f36bb0-a7c7-4ea3-aee6-1189a5587c27}</ProjectGuid>
-    <RootNamespace>SuperHero</RootNamespace>
+    <ProjectGuid>{53e4ad65-d0f3-4671-b9a7-05f778f00030}</ProjectGuid>
+    <RootNamespace>Friend</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="League.h" />
-    <ClInclude Include="SuperHero.h" />
+    <ClCompile Include="Friend.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

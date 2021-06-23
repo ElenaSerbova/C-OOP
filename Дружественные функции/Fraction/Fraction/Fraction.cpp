@@ -35,20 +35,12 @@ void Fraction::SetDenominator(int denominator)
 
 Fraction Fraction::operator/(Fraction rightOp)
 {
-	if (rightOp._numerator != 0)
-	{
-		int resNumerator = this->_numerator * rightOp._denominator;
-		int resDenominator = this->_denominator * rightOp._numerator;
+	int resNumerator = this->_numerator * rightOp._denominator;
+	int resDenominator = this->_denominator * rightOp._numerator;
 
-		Fraction result(resNumerator, resDenominator);
-		//сокращение дроби result
-		return result;
-	}
-	else
-	{
-		cout << "Error" << endl;
-		return Fraction();
-	}
+	Fraction result(resNumerator, resDenominator);
+	//сокращение дроби result
+	return result;
 }
 
 Fraction Fraction::operator/(int rightOp)
@@ -61,24 +53,12 @@ Fraction Fraction::operator/(int rightOp)
 	return result;
 }
 
-Fraction& Fraction::operator*=(const Fraction& rightOp)
-{
-	_numerator *= rightOp._numerator;
-	_denominator *= rightOp._denominator;
-	
-	return *this;
-}
 
-Fraction& Fraction::operator*=(int rightOp)
-{
-	_numerator *= rightOp;
-	return *this;
-}
 
 Fraction operator/(int leftOp, Fraction rightOp)
 {
-	int resNumerator = leftOp * rightOp.GetDenominator();
-	int resDenominator = rightOp.GetNumerator();
+	int resNumerator = leftOp * rightOp._denominator;
+	int resDenominator = rightOp._numerator;
 
 	Fraction result(resNumerator, resDenominator);
 	//сокращение дроби result
@@ -91,8 +71,8 @@ Fraction operator/(int leftOp, Fraction rightOp)
 
 Fraction operator*(Fraction leftOp, Fraction rightOp)
 {
-	int resNumerator = leftOp.GetNumerator() * rightOp.GetNumerator();
-	int resDenominator = leftOp.GetDenominator() * rightOp.GetDenominator();
+	int resNumerator = leftOp._numerator * rightOp._numerator;
+	int resDenominator = leftOp._denominator * rightOp._denominator;
 
 	Fraction result(resNumerator, resDenominator);
 	//сокращение дроби result
@@ -159,7 +139,7 @@ Fraction operator++(Fraction& fr, int)
 
 Fraction Fraction::operator--()
 {
-	_numerator -= _denominator;
+	this->_numerator -= this->_denominator;
 
 	return *this; //return fr;
 }
@@ -191,9 +171,6 @@ bool operator!=(Fraction leftOp, Fraction rightOp)
 
 #pragma endregion
 
-
-#pragma region conversion
-
 Fraction::operator double()
 {
 	return (double)_numerator / _denominator;
@@ -204,4 +181,5 @@ Fraction::operator int()
 	return _numerator / _denominator;
 }
 
-#pragma endregion
+
+

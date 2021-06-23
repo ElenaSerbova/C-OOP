@@ -5,13 +5,15 @@ using namespace std;
 
 class Fraction
 {
+	friend Fraction operator*(Fraction leftOp, Fraction rightOp);
+	friend Fraction operator*(Fraction leftOp, int rightOp);
+	friend Fraction operator*(int leftOp, Fraction rightOp);
+
 public:
 
 #pragma region Constructors
 	Fraction() = default;
-
 	explicit Fraction(int numerator);
-
 	Fraction(int numerator, int denominator);
 #pragma endregion
 
@@ -31,13 +33,7 @@ public:
 
 	Fraction operator/ (Fraction rightOp);
 	Fraction operator/ (int rightOp);
-
-#pragma endregion
-
-#pragma region Multiplication assignment
-
-	Fraction& operator*= (const Fraction& rightOp);
-	Fraction& operator*= (int rightOp);
+	friend Fraction operator/(int leftOp, Fraction rightOp);
 
 #pragma endregion
 
@@ -48,8 +44,9 @@ public:
 
 #pragma endregion
 
-#pragma region conversion
-	operator double();
+#pragma region Conversion
+
+	explicit operator double();
 	explicit operator int();
 #pragma endregion
 
@@ -67,11 +64,6 @@ Fraction operator*(int leftOp, Fraction rightOp);
 
 #pragma endregion
 
-#pragma region operator/
-
-Fraction operator/(int leftOp, Fraction rightOp);
-
-#pragma endregion
 
 #pragma region unary operator-
 
