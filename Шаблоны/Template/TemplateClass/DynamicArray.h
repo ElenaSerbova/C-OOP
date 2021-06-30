@@ -41,15 +41,13 @@ inline DynamicArray<T>::DynamicArray(const initializer_list<T>& list)
 {
 	_size = list.size();
 	_arr = new T[_size];
-
-	auto it = list.begin();
+	
 	int i = 0;
-	while (it != list.end())
+	for (auto it = list.begin(); it != list.end(); it++)
 	{
 		_arr[i] = *it;
 		i++;
-		it++;
-	}
+	}	
 }
 
 template<typename T>

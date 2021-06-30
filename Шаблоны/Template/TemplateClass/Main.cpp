@@ -44,7 +44,7 @@ int main()
 
 
     double arr1[5] = { 1,2,3,4,5 };
-    DynamicArray<double> arr2 = { 1,2,3,4,5 };
+    DynamicArray<double> arr2 = { 1,2,3,4,5 }; //arr2( { 1,2,3,4,5} )
 
 }
 
