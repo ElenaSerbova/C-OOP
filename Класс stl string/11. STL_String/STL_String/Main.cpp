@@ -8,14 +8,16 @@ void capacity();
 void elementAccess();
 void modifiers();
 void stringOperations();
+void inputString();
 
 void main()
 {
 	//constructors();
 	//capacity();
 	//elementAccess();
-	modifiers();
+	//modifiers();
 	//stringOperations();
+	inputString();
 }
 
 void constructors()
@@ -123,7 +125,7 @@ void modifiers()
 	string str1 = "Extends";
 	string str2 = "Extends the string by appending additional characters";
 	
-	str1.append(str2, 7, -1);
+	str1.append(str2, 7, string::npos);
 	str1.push_back('.');
 	cout << str1 << endl;
 
@@ -154,6 +156,17 @@ void stringOperations()
 	pos = str.find_first_not_of("!?:,.");
 	cout << "pos: " << pos << endl;
 
+}
+
+void inputString()
+{
+	string str;
+
+	cout << "Enter a string: ";
+	//cin >> str;
+	getline(cin, str);
+
+	cout << "String: " << str << endl;
 }
 
 	
