@@ -4,15 +4,18 @@
 Seller::Seller(string firstname, string lastname, double sallary, string phone, string department)
 	: Employee(firstname, lastname, sallary, phone)
 {
-	cout << "Seller constructor with params" << endl;	
-
+#ifdef DEBUG
+	cout << "Seller constructor with params" << endl;
+#endif	
+	
 	SetDepartment(department);
-
 }
 
 Seller::~Seller()
 {
+#ifdef DEBUG
 	cout << "Seller destructor" << endl;
+#endif	
 }
 
 void Seller::SetDepartment(string department)
@@ -23,10 +26,6 @@ void Seller::SetDepartment(string department)
 void Seller::Print()
 {
 	cout << "Seller: " << endl;
-
-	cout << "Fullname:\t" << GetFirstname() << " " << GetLastname() << endl;
-	cout << "Phone:\t\t" << GetPhone() << endl;
-	cout << "Sallary:\t" << GetSalary() << endl;
-
+	Employee::Print();
 	cout << "Department:\t" << _department << endl << endl;
 }

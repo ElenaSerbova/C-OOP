@@ -7,12 +7,15 @@ class Сashier :  public Employee
 public:
 
 	Сashier();
+	Сashier(string firstname, string lastname, double sallary) 
+		: Employee(firstname, lastname, sallary) {}
+	
 	~Сashier();
 
 	void SetAuthInfo(string login, string password);
 	bool CheckAuthInfo(string login, string password);
 
-	void Print(int);
+	virtual void Print() ;
 
 private:
 	string _login;

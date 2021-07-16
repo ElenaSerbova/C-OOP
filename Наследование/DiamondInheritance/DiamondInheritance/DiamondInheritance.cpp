@@ -53,7 +53,7 @@ public:
 int main()
 {
     D obj;
-    obj.fieldA = 10;
+    obj.fieldA = 10;    
     obj.fieldB = 20;
     obj.fieldC = 30;
     obj.fieldD = 40;

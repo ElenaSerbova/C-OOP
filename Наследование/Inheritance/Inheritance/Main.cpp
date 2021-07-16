@@ -15,7 +15,8 @@ void UsingSellerCashier()
 	cashier.SetSalary(7000);
 	cashier.SetAuthInfo("popova", "qwerty");
 
-	cashier.Print();
+	cashier.Print(0);
+	cashier.Employee::Print();
 }
 
 void UsingConstructors()
@@ -36,6 +37,9 @@ void UsingConstructors()
 	cout << endl <<  "Seller: " << seller1.GetFirstname() << " " << seller1.GetLastname() << endl;
 
 	Seller seller2 = seller1;
+
+	cout << endl << "Seller copy: " << seller2.GetFirstname() << " " << seller2.GetLastname() << endl;
+
 }
 
 
