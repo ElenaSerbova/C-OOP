@@ -35,7 +35,7 @@ public:
     Apartment(Apartment&& a) = delete;
     Apartment& operator= (Apartment&& a) = delete;
 
-    virtual void Print();
+    virtual void Print() override;
 
     virtual double GetCost() override;
 };

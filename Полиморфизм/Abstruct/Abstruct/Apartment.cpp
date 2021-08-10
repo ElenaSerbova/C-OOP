@@ -3,7 +3,7 @@
 void Apartment::Print()
 {
 	Realty::Print();
-	cout << "Rooms: " << roomCount << endl;
+	cout << "Rooms: " << roomCount << endl;	
 }
 
 double Apartment::GetCost()

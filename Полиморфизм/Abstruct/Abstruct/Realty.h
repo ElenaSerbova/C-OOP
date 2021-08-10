@@ -2,7 +2,7 @@
 
 #include "Header.h"
 
-//abstruct class
+//abstract class
 class Realty //Недвижимость
 {
 public:
@@ -11,7 +11,7 @@ public:
 
 	virtual void Print();
 
-	virtual double GetCost() = 0; //abstruct method - pure virtual function
+	virtual double GetCost() = 0; //abstract method - pure virtual function
 
 	virtual ~Realty() = 0 {};
 

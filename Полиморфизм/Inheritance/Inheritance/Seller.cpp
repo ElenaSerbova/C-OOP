@@ -2,13 +2,12 @@
 
 
 Seller::Seller(string firstname, string lastname, double sallary, string phone, string department)
-	: Employee(firstname, lastname, sallary, phone)
+	: Employee(firstname, lastname, sallary, phone), _department(department)
 {
 #ifdef DEBUG
 	cout << "Seller constructor with params" << endl;
-#endif	
+#endif
 	
-	SetDepartment(department);
 }
 
 Seller::~Seller()

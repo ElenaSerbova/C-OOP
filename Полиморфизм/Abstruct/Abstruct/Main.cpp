@@ -6,5 +6,7 @@ int main()
     double cost = realty->GetCost();
     
     delete realty; //realty->destructor();
+
+  
 }
 
