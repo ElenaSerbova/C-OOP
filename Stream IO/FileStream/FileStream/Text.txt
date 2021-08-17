@@ -1,0 +1,4 @@
+Input stream objects can read and interpret input from sequences of characters. 
+Specific members are provided to perform these input operations (see functions below).
+
+The standard object cin is an object of this type.

@@ -1,0 +1,19 @@
+Hello, world
+a = 123
+qwerty
+Hello, world
+a = 123
+asdfgh
+Hello, world
+a = 123
+zxcxvxcv
+Hello, world
+a = 123
+ vbghfghfghg
+{ f1 = -858993460, f2 = -9.25596e+61 }
+Hello, world
+a = 123
+,kdkjfshkfh
+{ f1 = 12, f2 = 12.3 }
+Hello, world
+a = 123
