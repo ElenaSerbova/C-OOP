@@ -111,11 +111,10 @@ void ReadWriteBinary()
 		cout << brr[i] << endl;
 	}
 	
-	/*string s2;
-	fin.read((char*)&s2, sizeof(string));
+	//string s2;
+	/*fin.read((char*)&s2, sizeof(string));
 
 	cout << s2 << endl;*/
-
 	
 	int size2;
 	fin.read((char*)&size2, sizeof(int));
@@ -170,7 +169,7 @@ void TellSeek()
 int main()
 {
 
-	ReadWriteText();
-	//ReadWriteBinary();
+	//ReadWriteText();
+	ReadWriteBinary();
 	//TellSeek();	
 }
